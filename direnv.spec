@@ -15,7 +15,7 @@
 
 Name: direnv
 Version: 2.9.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Environment variable switcher for the shell
 License: MIT
 URL: http://direnv.net/
@@ -56,6 +56,9 @@ make test
 %{_bindir}/direnv
 
 %changelog
+* Fri Feb 10 2017 Fedora Release Engineering <releng@fedoraproject.org> - 2.9.0-5
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Tue Aug 30 2016 Dominic Cleal <dominic@cleal.org> - 2.9.0-4
 - Use repo macros in Source0, add comments
 - Replace URL with correct homepage
