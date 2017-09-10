@@ -11,11 +11,11 @@
 %global provider_prefix %{provider}.%{provider_tld}/%{project}/%{repo}
 %global import_path     %{provider_prefix}
 # Keep SHA in sync with tagged commits
-%global commit          2bb2df4ca3bf3f45d1f36372c279615239e5c0f4
+%global commit          a49d542059b53dba71202d64a64f81e980868522
 
 Name: direnv
-Version: 2.9.0
-Release: 7%{?dist}
+Version: 2.12.2
+Release: 1%{?dist}
 Summary: Environment variable switcher for the shell
 License: MIT
 URL: http://direnv.net/
@@ -35,7 +35,12 @@ project-specific environment variables without cluttering the
 %prep
 %setup -q
 
+# Used like an external library, but shipped in-project
+mkdir -p gopath/src/%{import_path}
+mv dotenv gopath/src/%{import_path}
+
 %build
+export GOPATH=$(pwd)/gopath
 make %{?_smp_mflags} GO_LDFLAGS="-B 0x$(head -c20 /dev/urandom|od -An -tx1|tr -d ' \n')"
 
 %install
@@ -46,6 +51,7 @@ install -d -p %{buildroot}%{_mandir}/man1
 install -p -m 0644 man/*.1 %{buildroot}%{_mandir}/man1
 
 %check
+export GOPATH=$(pwd)/gopath
 make test
 
 %files
@@ -56,6 +62,9 @@ make test
 %{_bindir}/direnv
 
 %changelog
+* Sun Sep 10 2017 Dominic Cleal <dominic@cleal.org> - 2.12.2-1
+- Update to 2.12.2
+
 * Wed Aug 02 2017 Fedora Release Engineering <releng@fedoraproject.org> - 2.9.0-7
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Binutils_Mass_Rebuild
 
