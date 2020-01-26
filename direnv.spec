@@ -3,7 +3,7 @@
 
 # https://github.com/direnv/direnv
 %global goipath         github.com/direnv/direnv
-Version:                2.20.1
+Version:                2.21.1
 
 %gometa
 
@@ -11,7 +11,7 @@ Version:                2.20.1
 direnv augments existing shells with a new feature that can load and unload
 environment variables depending on the current directory.}
 
-%global golicenses      LICENSE.md
+%global golicenses      LICENSE
 %global godocs          docs CHANGELOG.md README.md version.txt man/direnv-\\\
                         stdlib.1.md man/direnv.toml.1.md man/direnv.1.md
 
@@ -29,6 +29,7 @@ Patch0:         direnv-fix-manpage.patch
 
 BuildRequires:  golang(github.com/BurntSushi/toml)
 BuildRequires:  golang(github.com/direnv/go-dotenv)
+BuildRequires:  golang(golang.org/x/mod/semver)
 
 %description
 %{common_description}
@@ -56,7 +57,7 @@ install -m 0644 -vp man/*.1 %{buildroot}%{_mandir}/man1
 %endif
 
 %files
-%license LICENSE.md
+%license LICENSE
 %doc docs CHANGELOG.md README.md version.txt
 %{_bindir}/*
 %{_mandir}/man1/*
@@ -64,6 +65,9 @@ install -m 0644 -vp man/*.1 %{buildroot}%{_mandir}/man1
 %gopkgfiles
 
 %changelog
+* Sun Jan 26 2020 Ed Marshall <esm@logic.net> - 2.21.1-1
+- Update to 2.21.1
+
 * Wed Oct 30 2019 Ed Marshall <esm@logic.net> - 2.20.1-1
 - Update to 2.20.1
 - Update spec to latest Fedora go packaging guidelines
