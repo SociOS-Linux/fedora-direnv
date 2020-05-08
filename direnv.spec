@@ -64,7 +64,7 @@ install -m 0644 -vp man/*.1 %{buildroot}%{_mandir}/man1
 - Update to 2.21.3
 - Removed now-unneeded manpage lint fix
 
-* Sun Jan 26 2020 Ed Marshall <esm@logic.net> - 2.21.2-1
+* Wed Jan 29 2020 Ed Marshall <esm@logic.net> - 2.21.2-1
 - Update to 2.21.2
 
 * Tue Jan 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 2.21.1-2
