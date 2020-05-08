@@ -3,7 +3,7 @@
 
 # https://github.com/direnv/direnv
 %global goipath         github.com/direnv/direnv
-Version:                2.21.2
+Version:                2.21.3
 
 %gometa
 
@@ -23,10 +23,6 @@ License:        MIT
 URL:            %{gourl}
 Source0:        %{gosource}
 
-# Work around bug in markdown->man generation
-# https://github.com/direnv/direnv/pull/113
-Patch0:         direnv-fix-manpage.patch
-
 BuildRequires:  golang(github.com/BurntSushi/toml)
 BuildRequires:  golang(github.com/direnv/go-dotenv)
 BuildRequires:  golang(golang.org/x/mod/semver)
@@ -38,7 +34,6 @@ BuildRequires:  golang(golang.org/x/mod/semver)
 
 %prep
 %goprep
-%patch0 -p1
 
 %build
 %gobuild -o %{gobuilddir}/bin/direnv %{goipath}
@@ -65,6 +60,10 @@ install -m 0644 -vp man/*.1 %{buildroot}%{_mandir}/man1
 %gopkgfiles
 
 %changelog
+* Fri May 08 2020 Ed Marshall <esm@logic.net> - 2.21.3-1
+- Update to 2.21.3
+- Removed now-unneeded manpage lint fix
+
 * Sun Jan 26 2020 Ed Marshall <esm@logic.net> - 2.21.2-1
 - Update to 2.21.2
 
