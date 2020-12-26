@@ -3,7 +3,7 @@
 
 # https://github.com/direnv/direnv
 %global goipath         github.com/direnv/direnv
-Version:                2.22.1
+Version:                2.25.2
 
 %gometa
 
@@ -25,6 +25,7 @@ Source0:        %{gosource}
 
 BuildRequires:  golang(github.com/BurntSushi/toml)
 BuildRequires:  golang(github.com/direnv/go-dotenv)
+BuildRequires:  golang(github.com/mattn/go-isatty)
 BuildRequires:  golang(golang.org/x/mod/semver)
 
 %description
@@ -60,6 +61,11 @@ install -m 0644 -vp man/*.1 %{buildroot}%{_mandir}/man1
 %gopkgfiles
 
 %changelog
+* Sat Dec 26 15:34:39 CET 2020 Robert-André Mauchin <zebob.m@gmail.com> - 2.25.2-1
+- Update to 2.25.2
+- Close: rhbz#1887117
+- Close: rhbz#1910775
+
 * Tue Oct 06 2020 Ed Marshall <esm@logic.net> - 2.22.1-1
 - Update to 2.22.1
 
