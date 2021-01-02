@@ -3,7 +3,7 @@
 
 # https://github.com/direnv/direnv
 %global goipath         github.com/direnv/direnv
-Version:                2.26.0
+Version:                2.27.0
 
 %gometa
 
@@ -61,6 +61,10 @@ install -m 0644 -vp man/*.1 %{buildroot}%{_mandir}/man1
 %gopkgfiles
 
 %changelog
+* Sat Jan  2 17:52:00 CET 2021 Robert-André Mauchin <zebob.m@gmail.com> - 2.27.0-1
+- Update to 2.27.0
+- Close: rhbz#1911955
+
 * Fri Jan  1 17:53:53 CET 2021 Robert-André Mauchin <zebob.m@gmail.com> - 2.26.0-1
 - Update to 2.26.0
 - Close: rhbz#1911127
