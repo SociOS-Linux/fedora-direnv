@@ -16,7 +16,7 @@ environment variables depending on the current directory.}
                         stdlib.1.md man/direnv.toml.1.md man/direnv.1.md
 
 Name:           direnv
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Per-directory shell configuration tool
 
 License:        MIT
@@ -61,6 +61,9 @@ install -m 0644 -vp man/*.1 %{buildroot}%{_mandir}/man1
 %gopkgfiles
 
 %changelog
+* Tue Jan 26 2021 Fedora Release Engineering <releng@fedoraproject.org> - 2.27.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
 * Sat Jan  2 17:52:00 CET 2021 Robert-André Mauchin <zebob.m@gmail.com> - 2.27.0-1
 - Update to 2.27.0
 - Close: rhbz#1911955
