@@ -3,7 +3,7 @@
 
 # https://github.com/direnv/direnv
 %global goipath         github.com/direnv/direnv
-Version:                2.27.0
+Version:                2.28.0
 
 %gometa
 
@@ -61,6 +61,10 @@ install -m 0644 -vp man/*.1 %{buildroot}%{_mandir}/man1
 %gopkgfiles
 
 %changelog
+* Tue Jun 15 2021 Ed Marshall <esm@logic.net> - 2.28.0-1
+- Update to 2.28.0a
+- Close: rhbz#1938419
+
 * Tue Jan 26 2021 Fedora Release Engineering <releng@fedoraproject.org> - 2.27.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
 
